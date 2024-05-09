@@ -1036,6 +1036,23 @@ p {
   color: rgb(7 166 186 / var(--tw-text-opacity));
 }
 
+.lws-badge-saved {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 9999px;
+  background-color: rgb(180 240 163 / 0.5);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+  --tw-text-opacity: 1;
+  color: rgb(22 69 9 / var(--tw-text-opacity));
+}
+
 .lws-postTitle {
   font-size: 1.25rem;
   line-height: 1.75rem;

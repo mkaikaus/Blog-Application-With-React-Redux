@@ -15,7 +15,7 @@ const SideBar = () => {
                     <div className="radio-group">
                         {/* <!-- handle filter on button click --> */}
                         <div>
-                            <input type="radio" name="filter" id="lws-all" checked className="radio" />
+                            <input type="radio" name="filter" id="lws-all" className="radio" />
                             <label>All</label>
                         </div>
                         <div>
