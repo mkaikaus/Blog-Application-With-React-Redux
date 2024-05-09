@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import SinglePost from "./SinglePost"
+import PostCardItem from "./PostCard"
 import { useEffect } from "react";
 import { fetchPosts } from "../features/Posts/postsSlice";
 import Loading from "./Loading";
@@ -24,7 +24,7 @@ const PostContainer = () => {
 
     if (!isError && !isLoading && posts?.length > 0) {
         content = posts.map((post) => (
-            <SinglePost key={post.id} post={post} />
+            <PostCardItem key={post.id} post={post} />
         ));
     }
 

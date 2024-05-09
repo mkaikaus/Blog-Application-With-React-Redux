@@ -27,14 +27,11 @@ const SinglePost = ({ post = {} }) => {
                     <p className="lws-publishedDate">{createdAt} </p>
                     <p className="lws-likeCount"><i className="fa-regular fa-thumbs-up"></i>{likes}</p>
                 </div>
-                <Link to="/post/1" className="lws-postTitle"> {title} </Link>
+                <Link to={`/post/${id}`} className="lws-postTitle"> {title} </Link>
                 <div className="lws-tags">
                     {tags.map(tag => <span key={tag}>#{tag}</span>)}
                 </div>
                 {saveFlag}
-
-
-                {/* <!-- Show this element if post is saved Ends --> */}
             </div>
         </div>
     )
