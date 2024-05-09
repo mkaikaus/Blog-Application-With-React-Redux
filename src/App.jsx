@@ -1,19 +1,25 @@
-import { useState } from 'react'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Home from './components/Home'
 import Navbar from './components/Navbar'
-import SideBar from './components/SideBar'
-import PostContainer from './components/PostContainer'
+
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Post from './components/Post'
 
 
 function App() {
   return (
     <>
-      <Navbar />
-      <section className="wrapper">
-        <SideBar />
-        <PostContainer />
-      </section>
+      <Router>
+
+
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/post/:postId" element={<Post />} />
+        </Routes>
+
+      </Router>
     </>
   )
 }
