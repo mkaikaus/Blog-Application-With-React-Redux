@@ -4,11 +4,12 @@ import { Link, useParams } from "react-router-dom"
 import { useEffect } from "react";
 import { fetchPost } from "../features/Post/postSlice";
 import Loading from "./Loading";
+import RelatedPostList from "./RelatedPostList";
 
 const Post = () => {
     const { post, isLoading, isError, error } = useSelector(state => state.post);
 
-    const { id, image, title, createdAt, isSaved, tags, likes, description } = post;
+    const { id, image, title, isSaved, tags, likes, description } = post;
     const dispatch = useDispatch();
     const { postId } = useParams();
     // console.log(params);
@@ -40,12 +41,9 @@ const Post = () => {
                     {tags.map(tag => <span key={tag}>#{tag}</span>)}
                 </div>
                 <div className="btn-group">
-                    {/* <!-- handle like on button click --> */}
                     <button className="like-btn" id="lws-singleLinks">
                         <i className="fa-regular fa-thumbs-up"></i> {likes}
                     </button>
-                    {/* <!-- handle save on button click --> */}
-                    {/* <!-- use ".active" className and "Saved" text  if a post is saved, other wise "Save" --> */}
 
                     {isSaved ?
                         <button className="save-btn" id="lws-singleSavedBtn">
@@ -55,9 +53,6 @@ const Post = () => {
                             <i className="fa-regular fa-bookmark"></i> Save
                         </button>
                     }
-                    {/* // <button className="active save-btn" id="lws-singleSavedBtn">
-                    //     <i className="fa-regular fa-bookmark"></i> Saved
-                    // </button> */}
                 </div>
                 <div className="mt-6">
                     <p>
@@ -79,12 +74,7 @@ const Post = () => {
                 {content}
                 {/* <!-- detailed post ends --> */}
                 {/* <!-- related posts --> */}
-                <aside>
-                    <h4 className="mb-4 text-xl font-medium" id="lws-relatedPosts">Related Posts</h4>
-                    <div className="space-y-4 related-post-container">
-                        <RelatedPost />
-                    </div>
-                </aside>
+                <RelatedPostList currentPostId={id} tags={tags} />
                 {/* <!-- related posts ends --> */}
             </section>
         </div>
